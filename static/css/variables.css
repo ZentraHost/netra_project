@@ -1,0 +1,26 @@
+/* NETRA UI - Variables */
+
+:root {
+    /* Palette - OLED Black & Electric Accents */
+    --bg-deep: #000000;
+    --surface: rgba(10, 10, 12, 0.85);
+    --surface-glass: rgba(10, 10, 12, 0.6);
+    
+    --accent-primary: #6366f1; /* Indigo-500 */
+    --accent-glow: rgba(99, 102, 241, 0.4);
+    
+    --critical: #ef4444; /* Red-500 */
+    --warning: #f59e0b;  /* Amber-500 */
+    --safe: #10b981;     /* Emerald-500 */
+    --info: #3b82f6;     /* Blue-500 */
+
+    --text-main: #ffffff;
+    --text-sec: rgba(255, 255, 255, 0.7);
+    --text-mute: rgba(255, 255, 255, 0.4);
+
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+
+    --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+}

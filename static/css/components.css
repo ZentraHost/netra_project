@@ -1,0 +1,238 @@
+/* NETRA UI - Components */
+
+/* Status Pill */
+.status-pill {
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-60px);
+    opacity: 0;
+    transition: all 0.5s var(--ease-out);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.status-pill.visible { transform: translateY(0); opacity: 1; }
+
+.status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--text-mute);
+    transition: background 0.3s;
+}
+.status-dot.active { background: var(--safe); box-shadow: 0 0 10px var(--safe); }
+.status-dot.error { background: var(--critical); }
+
+.status-text {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Banners & Feedback */
+.search-banner {
+    background: var(--warning);
+    color: black;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s;
+}
+.search-banner.visible { opacity: 1; transform: scale(1); }
+
+.main-feedback {
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    width: 100%;
+}
+.main-feedback.visible { opacity: 1; }
+
+.gesture-hint {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-sec);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+/* Cards */
+.glass-card {
+    background: var(--surface-glass);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-header h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-mute);
+    font-weight: 600;
+}
+
+.badge {
+    background: var(--accent-primary);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Lists and Text */
+.reasoning-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--accent-primary);
+    border-left: 2px solid var(--accent-primary);
+    padding-left: 10px;
+    overflow-y: auto;
+}
+
+.obj-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+}
+.obj-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+}
+.obj-dist {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-sec);
+    font-size: 12px;
+}
+.obj-dist.near { color: var(--critical); font-weight: 700; }
+
+/* Stats */
+.stat-box {
+    background: var(--surface-glass);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.stat-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.stat-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-top: 4px;
+}
+
+/* Task Flow */
+.task-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-primary);
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 8px;
+}
+
+.task-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.02);
+    font-size: 13px;
+    color: var(--text-sec);
+    transition: all 0.3s;
+}
+
+.task-step.active {
+    background: rgba(99, 102, 241, 0.15);
+    border-left: 2px solid var(--accent-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.task-step.completed {
+    text-decoration: line-through;
+    color: var(--text-mute);
+    opacity: 0.6;
+}
+
+.step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    opacity: 0.5;
+}
+.task-step.active .step-num { opacity: 1; color: var(--accent-primary); }
+.task-step.completed .step-num { color: var(--safe); content: "✓"; }
+
+/* Context Cues */
+.context-cue {
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+}
+.cue-info { border-left: 2px solid var(--info); }
+.cue-warning { border-left: 2px solid var(--warning); }
+
+/* Debug Console */
+#console-log {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%; height: 25vh;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    z-index: 9999;
+    display: none;
+}
+#console-log.visible { display: block; }
+.log-entry { border-bottom: 1px solid #444; padding: 2px 0; }
+.log-error { color: var(--critical); }
+.log-warn { color: var(--warning); }
+.log-info { color: var(--info); }
