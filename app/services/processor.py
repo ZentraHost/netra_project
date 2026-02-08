@@ -137,7 +137,7 @@ async def process_micro_frame(frame_data: Dict[str, Any], state: SessionState, w
         # Using Flash 2.0 for speed
         response = await asyncio.to_thread(
             client.models.generate_content,
-            model="gemini-2.0-flash",
+            model="gemini-3-flash-preview",
             contents=[MICRO_NAV_PROMPT.format(target=target), img],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
@@ -199,7 +199,7 @@ async def process_task_frame(frame_data: Dict[str, Any], state: SessionState, we
         prompt = TASK_GUIDANCE_PROMPT.format(current_step=current_step['instruction'])
         response = await asyncio.to_thread(
             client.models.generate_content,
-            model="gemini-2.0-flash",
+            model="gemini-3-flash-preview",
             contents=[prompt, img],
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
