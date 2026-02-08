@@ -1,0 +1,29 @@
+/* NETRA UI - Base & Reset */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Scrollbar Hide */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+::-webkit-scrollbar-track { background: transparent; }
