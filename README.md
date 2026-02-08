@@ -1,7 +1,7 @@
 # Netra - Advanced Visual Navigation Assistant
 
 ## Overview
-Netra is an AI-powered assistive vision system designed to provide "socially aware" navigation for the visually impaired. Developed for the **Gemini 3 Hackathon**, it leverages **Google's Gemini 2.0 Flash** model to interpret environmental dynamics, recognize interpersonal intent, and maintain long-term spatial memory.
+Netra is an AI-powered assistive vision system designed to provide "socially aware" navigation for the visually impaired. Developed for the **Gemini 3 Hackathon**, it leverages **Google's Gemini 3 Flash** model to interpret environmental dynamics, recognize interpersonal intent, and maintain long-term spatial memory.
 
 ## Key Features
 - **Social Intelligence:** Recognizes social cues like smiling or waving to distinguish between a passive bystander and someone seeking interaction.
@@ -11,7 +11,7 @@ Netra is an AI-powered assistive vision system designed to provide "socially awa
 - **Multimodal Interaction:** Supports simultaneous video frame processing and voice command recognition via WebSockets.
 
 ## Technical Stack
-- **AI Core:** Google Gemini 2.0 Flash (Multimodal)
+- **AI Core:** Google Gemini 3 Flash (Multimodal)
 - **Backend:** FastAPI, Uvicorn, Python 3.13+
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (WebComponents-style architecture)
 - **Real-time Communication:** WebSockets for low-latency video and audio streaming.
