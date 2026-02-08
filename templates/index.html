@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="description" content="Visual Navigation Assistant for the Blind and Visually Impaired" />
+    <title>NETRA - Visual Navigation</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="/static/css/main.css" />
+    
+    <link rel="manifest" href="/static/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="apple-touch-icon" href="/static/images/icon-512.png" />
+  </head>
+
+  <body>
+    <div id="a11y-announcer" class="sr-only" aria-live="assertive"></div>
+    <div id="console-log" role="log" aria-label="Debug Console" aria-hidden="true"></div>
+
+    <!-- LAYER 1: REALITY -->
+    <video 
+      id="cam" 
+      autoplay 
+      playsinline 
+      muted 
+      aria-label="Camera Feed"
+      role="img"
+    ></video>
+
+    <!-- LAYER 2: VITAL HUD -->
+    <main class="hud-layer">
+      <header class="hud-header" role="banner">
+        <div id="statusPill" class="status-pill" role="status" aria-live="polite">
+          <div id="statusDot" class="status-dot"></div>
+          <span id="statusText" class="status-text">Ready</span>
+        </div>
+        <div id="searchBanner" class="search-banner" role="status" aria-live="assertive">
+          Searching...
+        </div>
+      </header>
+
+      <section class="hud-center" aria-label="Primary Feedback">
+        <div class="heartbeat" aria-hidden="true"></div>
+        <div id="mainFeedback" class="main-feedback" role="alert"></div>
+      </section>
+
+      <footer class="hud-footer" role="contentinfo">
+        <div id="gestureHint" class="gesture-hint">
+          Double-tap to Start • Hold to Ask • Shake for Intel
+        </div>
+      </footer>
+    </main>
+
+    <!-- LAYER 3: TASK HUD -->
+    <aside id="task-hud" role="complementary" aria-label="Current Task Steps">
+      <div class="task-header">Interactive Guidance</div>
+      <div id="taskList" role="list"></div>
+      <div
+        id="taskFeedback"
+        class="task-feedback"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </aside>
+
+    <!-- LAYER 4: INTELLIGENCE GRID -->
+    <section 
+      id="intelligence-layer" 
+      role="region" 
+      aria-label="AI Intelligence details" 
+      aria-hidden="true"
+    >
+      <article class="glass-card area-reasoning">
+        <header class="card-header">
+          <h2>🧠 AI Reasoning</h2>
+          <span id="compassVal" class="accent-text">0° N</span>
+        </header>
+        <div id="thinkingBox" class="reasoning-text" role="log">Initializing...</div>
+        <div id="socialCue" class="context-cue cue-info" role="status"></div>
+        <div id="envCue" class="context-cue cue-warning" role="status"></div>
+      </article>
+
+      <article class="glass-card area-objects">
+        <header class="card-header">
+          <h2>Detected Objects</h2>
+          <span id="objCount" class="badge">0</span>
+        </header>
+        <div id="objList" class="obj-list" role="list"></div>
+      </article>
+
+      <div class="area-telemetry">
+        <div class="stat-box">
+          <div id="distVal" class="stat-val">--</div>
+          <div class="stat-label">Distance</div>
+        </div>
+        <div class="stat-box">
+          <div id="dirVal" class="stat-val">--</div>
+          <div class="stat-label">Direction</div>
+        </div>
+        <div class="stat-box">
+          <div id="latVal" class="stat-val">--</div>
+          <div class="stat-label">Latency</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="/static/js/audio.js"></script>
+    
+    <!-- Main Module Entry -->
+    <script type="module" src="/static/js/main.js"></script>
+    
+    <script>
+      // Service Worker Registration
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/static/sw.js")
+            .then(
+              (reg) => console.log("[SW] Registered scope:", reg.scope),
+              (err) => console.log("[SW] Registration failed:", err),
+            );
+        });
+      }
+    </script>
+  </body>
+</html>
