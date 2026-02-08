@@ -33,7 +33,9 @@ def main():
             port=5000,
             reload=True,
             factory=True,
-            log_level=LOG_LEVEL.lower()
+            log_level=LOG_LEVEL.lower(),
+            ws_ping_interval=30,  # Keepalive ping every 30s
+            ws_ping_timeout=60    # Allow 60s for response (handling long AI tasks)
         )
     except KeyboardInterrupt:
         logging.info("NETRA Application stopped by user.")
