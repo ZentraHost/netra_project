@@ -45,7 +45,7 @@ except Exception as e:
 # Dimensions for image resizing (width, height)
 IMAGE_SIZE: Tuple[int, int] = (224, 160)
 MODEL_NAME: str = "gemini-3-flash-preview"  # Updated to latest stable flash model
-MODEL_TIMEOUT: float = float(os.getenv('MODEL_TIMEOUT', '8.0'))
+MODEL_TIMEOUT: float = float(os.getenv('MODEL_TIMEOUT', '20.0'))
 
 # =============================================================================
 # SPEECH TIMING SETTINGS (in seconds)
