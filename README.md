@@ -10,19 +10,30 @@ Netra is an AI-powered assistive vision system designed to provide "socially awa
 - **Interactive Task Guidance:** Step-by-step physical task assistance (e.g., "Help me make coffee") with real-time visual verification.
 - **Multimodal Interaction:** Supports simultaneous video frame processing and voice command recognition via WebSockets.
 
+## Accomplishments We're Proud Of
+- **Pioneering Social Intent Recognition:** Netra's ability to parse subtle cues like waves or smiles sets it apart, turning generic detections into actionable insights.
+- **Effective Micro-Nav Success:** Guiding hands to tiny targets with AI vectors and audio tones, proven in blindfolded tests, feels like magic.
+- **Hands-Free Mastery:** Full voice control means zero screen interaction, empowering users in motion.
+- **Performance Triumphs:** Sub-second responses using Gemini Flash, even on spotty networks.
+
 ## Technical Stack
 - **AI Core:** Google Gemini 3 Flash (Multimodal)
 - **Backend:** FastAPI, Uvicorn, Python 3.13+
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (WebComponents-style architecture)
 - **Real-time Communication:** WebSockets for low-latency video and audio streaming.
 
+## Challenges We Ran Into
+The biggest hurdle was the "0.5-meter rule": at walking speed, a 2-second delay means colliding with a hazard. Synchronizing Gemini's multimodal inputs (voice while analyzing video) required a parallel pipeline with async awaits to avoid main-thread bottlenecks.
+
+Another challenge was AI verbosity. Gemini could repeat "Chair ahead" endlessly, so we engineered a Speech Management Service with semantic deduplication and priority queues (Critical for hazards, Low for ambiance) to deliver concise, timely information.
+
 ## Project Structure
 - `main.py`: Entry point for the application.
 - `app/`:
-    - `config.py`: Centralized configuration and environment loading.
-    - `prompts.py`: Highly engineered system prompts for different AI modes.
-    - `services/`: Core logic for AI processing (`processor.py`), memory management (`memory.py`), and tracking.
-    - `routes/`: WebSocket and page routing.
+  - `config.py`: Centralized configuration and environment loading.
+  - `prompts.py`: Highly engineered system prompts for different AI modes.
+  - `services/`: Core logic for AI processing (`processor.py`), memory management (`memory.py`), and tracking.
+  - `routes/`: WebSocket and page routing.
 - `static/`: Frontend assets (JS, CSS, Images).
 - `templates/`: UI templates.
 
@@ -34,8 +45,8 @@ Netra is an AI-powered assistive vision system designed to provide "socially awa
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd netra
+git clone https://github.com/ZentraHost/netra_project.git
+cd netra_project
 
 # Install dependencies
 pip install -r requirements.txt
